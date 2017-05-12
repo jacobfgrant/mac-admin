@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadDescription</key>
+        <string>Disables automatically resuming applications on login</string>
+        <key>PayloadDisplayName</key>
+        <string>Disable App Resume</string>
+        <key>PayloadIdentifier</key>
+        <string>com.jacobfgrant.appresume</string>
+        <key>PayloadOrganization</key>
+        <string></string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>6EF28A49-9EEC-4BFC-ABC6-25F3A6166604</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+         <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Disable App Resume</string>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.A920370A-E706-49F0-9722-BDDAAAC80BC7</string>
+                <key>PayloadType</key>
+                <string>com.apple.ManagedClient.preferences</string>
+                <key>PayloadUUID</key>
+                <string>A920370A-E706-49F0-9722-BDDAAAC80BC7</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>PayloadContent</key>
+                <dict>
+                    <key>com.apple.loginwindow</key>
+                    <dict>
+                        <key>Forced</key>
+                        <array>
+                            <dict>
+                                <key>mcx_preference_settings</key>
+                                <dict>
+                                    <key>TALLogoutSavesState</key>
+                                    <false/>
+                                </dict>
+                            </dict>
+                        </array>
+                    </dict>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>

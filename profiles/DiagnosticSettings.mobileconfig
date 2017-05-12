@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadDescription</key>
+        <string>Configures Diagnostic &amp; Usage settings</string>
+        <key>PayloadDisplayName</key>
+        <string>Diagnostic &amp; Usage Settings</string>
+        <key>PayloadIdentifier</key>
+        <string>com.jacobfgrant.diagnosticsettings</string>
+        <key>PayloadOrganization</key>
+        <string></string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>0EC5ECCD-E01E-44CE-BB98-5D0BA8115EA2</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Security &amp; Privacy Settings</string>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.D3DEEE4F-D5E7-4413-8076-C5F22801599D</string>
+                <key>PayloadType</key>
+                <string>com.apple.SubmitDiagInfo</string>
+                <key>PayloadUUID</key>
+                <string>D3DEEE4F-D5E7-4413-8076-C5F22801599D</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>AutoSubmit</key>
+                <false/>
+            </dict>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Security &amp; Privacy Settings</string>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.56CDE7B2-DA06-4520-9EE5-8E42C7714798</string>
+                <key>PayloadType</key>
+                <string>com.apple.applicationaccess</string>
+                <key>PayloadUUID</key>
+                <string>56CDE7B2-DA06-4520-9EE5-8E42C7714798</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>allowDiagnosticSubmission</key>
+                <false/>
+            </dict>
+        </array>
+    </dict>
+</plist>

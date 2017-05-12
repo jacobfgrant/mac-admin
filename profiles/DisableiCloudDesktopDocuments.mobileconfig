@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadDescription</key>
+        <string>Disables iCloud Desktop &amp; Documents folder sync</string>
+        <key>PayloadDisplayName</key>
+        <string>Disable iCloud Desktop &amp; Documents</string>
+        <key>PayloadEnabled</key>
+        <true/>
+        <key>PayloadIdentifier</key>
+        <string>com.jacobfgrant.disableiclouddesktopdocuments</string>
+        <key>PayloadOrganization</key>
+        <string></string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>2E840DA1-8C52-4015-A9F8-6F25717AE8DA</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Disable iCloud Desktop &amp; Documents</string>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.7DD88E99-8460-44EA-A830-DC1C7585603D</string>
+                <key>PayloadType</key>
+                <string>com.apple.applicationaccess</string>
+                <key>PayloadUUID</key>
+                <string>7DD88E99-8460-44EA-A830-DC1C7585603D</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>allowCloudDesktopAndDocuments</key>
+                <false/>
+            </dict>
+        </array>
+    </dict>
+</plist>

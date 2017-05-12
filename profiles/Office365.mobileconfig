@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadDescription</key>
+    <string>Configures Office 365</string>
+    <key>PayloadDisplayName</key>
+    <string>Office 365</string>
+    <key>PayloadIdentifier</key>
+    <string>com.jacobfgrant.office365</string>
+    <key>PayloadOrganization</key>
+    <string></string>
+    <key>PayloadRemovalDisallowed</key>
+    <true/>
+    <key>PayloadScope</key>
+    <string>System</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>59FA8C8E-EF59-45F3-92F2-47A58E2E9033</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+	<key>PayloadContent</key>
+	<array>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 AutoUpdate Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.2986A041-C8CC-4582-BCA0-FF71857F0BE9</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>2986A041-C8CC-4582-BCA0-FF71857F0BE9</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.autoupdate2</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<key>HowToCheck</key>
+								<string>Manual</string>
+								<key>LastUpdate</key>
+								<date>2001-01-01T00:00:00Z</date>
+								<key>SendAllTelemetryEnabled</key>
+								<false/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 Save Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.E2044FF3-2EEF-4980-9F55-403E32607B22</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>E2044FF3-2EEF-4980-9F55-403E32607B22</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.officeprefs</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<key>DefaultsToLocalOpenSave</key>
+								<true/>
+								<key>VisualBasicMacroExecutionState</key>
+								<string>DisabledWithWarnings</string>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

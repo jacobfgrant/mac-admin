@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadDescription</key>
+        <string>Skips iCloud account setup</string>
+        <key>PayloadDisplayName</key>
+        <string>Skip iCloud Setup</string>
+        <key>PayloadIdentifier</key>
+        <string>com.jacobfgrant.skipicloudsetup</string>
+        <key>PayloadOrganization</key>
+        <string></string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>01DF1BCA-83C8-4349-8837-E6638557D0B7</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Skip iCloud Setup</string>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.470FBF92-A334-4F26-BAF6-DB447822674E</string>
+                <key>PayloadType</key>
+                <string>com.apple.SetupAssistant.managed</string>
+                <key>PayloadUUID</key>
+                <string>470FBF92-A334-4F26-BAF6-DB447822674E</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>SkipCloudSetup</key>
+                <true/>
+            </dict>
+        </array>
+    </dict>
+</plist>
