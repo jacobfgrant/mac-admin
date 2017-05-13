@@ -1,0 +1,21 @@
+#!/bin/sh
+
+#  ard-setup.sh
+#  
+#
+#  Created by Jacob F. Grant on 2/10/17.
+#
+
+# Turn on Remote Desktop Sharing, allow access for specified users
+
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -allowAccessFor -specifiedUsers
+
+
+# Give user mac-admin access to ARD and allow access to all services
+
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -users mac-admin -access -on -privs -all
+
+
+# Restart the ARD Agent and helper
+
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent

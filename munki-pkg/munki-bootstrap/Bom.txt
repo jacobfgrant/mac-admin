@@ -1,0 +1,6 @@
+.	40755	0/0
+./usr	40755	0/0
+./usr/local	40755	0/0
+./usr/local/outset	40755	0/0
+./usr/local/outset/boot-once	40755	0/0
+./usr/local/outset/boot-once/munki-bootstrap.sh	100755	0/80	434	1068029098

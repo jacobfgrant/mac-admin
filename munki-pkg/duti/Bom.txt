@@ -1,0 +1,9 @@
+.	40755	0/0
+./usr	40755	0/0
+./usr/local	40755	0/0
+./usr/local/bin	40755	0/0
+./usr/local/bin/duti	100755	0/80	31512	3816189399
+./usr/local/share	40755	0/0
+./usr/local/share/man	40755	0/0
+./usr/local/share/man/man1	40755	0/0
+./usr/local/share/man/man1/duti.1	100755	0/80	6383	4137208867

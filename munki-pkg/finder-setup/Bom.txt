@@ -1,0 +1,6 @@
+.	40755	0/0
+./usr	40755	0/0
+./usr/local	40755	0/0
+./usr/local/outset	40755	0/0
+./usr/local/outset/login-once	40755	0/0
+./usr/local/outset/login-once/finder-sidebar.sh	100755	0/0	764	4103746928

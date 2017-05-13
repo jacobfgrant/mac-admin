@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>distribution_style</key>
+	<false/>
+	<key>identifier</key>
+	<string>com.jacobfgrant.pkg.chrome-enable-autoupdates</string>
+	<key>install_location</key>
+	<string>/</string>
+	<key>name</key>
+	<string>chrome-enable-autoupdates-${version}.pkg</string>
+	<key>ownership</key>
+	<string>preserve</string>
+	<key>postinstall_action</key>
+	<string>none</string>
+	<key>version</key>
+	<string>1.0</string>
+</dict>
+</plist>

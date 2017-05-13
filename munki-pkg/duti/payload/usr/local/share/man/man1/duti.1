@@ -1,0 +1,331 @@
+.TH duti "1" "_DUTI_BUILD_DATE" "Andrew Mortensen" "User Commands"
+.SH NAME
+.B duti
+\- set default document and URL handlers
+.SH SYNOPSIS
+.B duti
+[
+.BI \-hVv
+] [
+.BI \-d\  uti
+] [
+.BI \-l\  uti
+] [
+.I settings_path
+]
+.sp
+.B duti
+.BI \-s
+.I bundle_id
+{
+.I uti
+|
+.I url_scheme
+|
+.I extension
+|
+.I MIME_type
+}
+[
+.I role
+]
+.sp
+.B duti
+.BI \-x\  extension
+.sp
+.SH DESCRIPTION
+.B duti
+sets applications as default handlers for Apple's Uniform Type Identifiers,
+for URL schemes, filename extensions, and MIME types.
+If 
+.I settings_path
+is not given on the command line,
+.B duti
+reads settings lines from stdin. If
+.I settings_path
+is a directory,
+.B duti
+applies settings from the files in
+.IR settings_path .
+.sp
+The
+.BI \-s
+flag tells
+.B duti
+to set a handler based on arguments from the command line. Two arguments
+following
+.BI \-s
+means that
+.B duti
+will set the handler for a URL scheme. Three arguments means
+.B duti
+will set the handler for a UTI, an extension or a MIME type, depending on
+the formatting of the second argument.
+.B duti
+treats an argument beginning with a dot as an extension. If the argument
+contains no dots,
+.B duti
+also considers the argument a filename extension, unless it contains a slash,
+in which case
+.B duti
+treats the argument as a MIME type. In all other cases,
+.B duti
+treats the second argument as a UTI.
+.sp
+.B duti
+.BI \-x
+retrieves and prints out information describing the default application
+for files with the extension
+.IR extension .
+.sp
+See
+.B EXAMPLES
+below for usage cases.
+.sp
+.SH SETTINGS FILE
+A settings file is made up of lines with the following format:
+.sp
+.br
+	app_id    UTI    role
+.br
+.sp
+The
+.I app_id
+is a bundle ID representing the application that will act as the
+handler for documents associated with
+.IR UTI .
+For example:
+.sp
+.br
+	com.apple.Safari	public.html	all
+.br
+.sp
+would cause
+.B duti
+to set Safari as the default handler in all situations for HTML documents.
+A settings file can also contain lines with this format:
+.sp
+.br
+	app_id    url_scheme
+.br
+.sp
+In this case,
+.I app_id
+is again a bundle ID, this time for the application that will act as the
+default handler for
+.IR url_scheme .
+For example:
+.sp
+.br
+	org.mozilla.Firefox     ftp
+.br
+.sp
+would cause
+.B duti
+to set Firefox as the handler for "ftp://" URLs.
+.SH SETTINGS PLIST
+If the extension of the file given to
+.B duti
+is
+.IR \.plist ,
+.B duti
+treats the file as an XML property list (plist).
+The plist must contain a key-value pair, in which the key is "DUTISettings"
+and the value is an array of dictionaries. Each dictionary in the array
+contains three key-value pairs representing the application's bundle ID,
+the UTI and the role, respectively. Alternatively, a dictionary in the array
+may contain two key-value pairs representing the application's bundle ID,
+and the URL scheme. A simple plist designed to set Safari as the default
+handler of HTML files, and Firefox as the default handler for "ftp://" URLs,
+would look like this:
+.sp
+.br
+	<?xml version="1.0" encoding="UTF-8"?>
+.br
+	<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+.br
+	<plist version="1.0">
+.br
+	<dict>
+.br
+		<key>DUTISettings</key>
+.br
+		<array>
+.br
+			<dict>
+.br
+				<key>DUTIBundleIdentifier</key>
+.br
+				<string>com.apple.Safari</string>
+.br
+				<key>DUTIUniformTypeIdentifier</key>
+.br
+				<string>public.html</string>
+.br
+				<key>DUTIRole</key>
+.br
+				<string>all</string>
+.br
+			</dict>
+.br
+			<dict>
+.br
+				<key>DUTIBundleIdentifier</key>
+.br
+				<string>org.mozilla.Firefox</string>
+.br
+				<key>DUTIURLScheme</key>
+.br
+				<string>ftp</string>
+.br
+			</dict>
+.br
+		</array>
+.br
+	</dict>
+.br
+	</plist>
+.br
+.sp
+.SH ROLES
+Valid roles are defined as follows:
+.sp
+.TP 19
+.B all
+application handles all roles for the given UTI.
+.TP 19
+.B viewer
+application handles reading and displaying documents with the given UTI.
+.TP 19
+.B editor
+application can manipulate and save the item. Implies viewer.
+.TP 19
+.B shell
+application can execute the item.
+.TP 19
+.B none
+application cannot open the item, but provides an icon for the given UTI.
+.SH EXAMPLES
+Running
+.B duti
+with
+.BI \-s
+:
+.sp
+.br
+	# Set Safari as the default handler for HTML documents
+.br
+	duti -s com.apple.Safari public.html all
+.br
+.sp
+	# Set Finder as the default handler for the ftp:// URL scheme
+.br
+	duti -s com.apple.Finder ftp
+.sp
+
+Retrieving default application information for an extension:
+.sp
+.br
+	# default application information for .html files
+.br
+	% duti -x html
+.br
+	Safari
+.br
+	/Applications/Safari.app
+.br
+	com.apple.Safari
+.br
+.sp
+
+The following examples can be used by passing them to
+.B duti
+on stdin or as lines in a .duti file.
+.sp
+Set TextEdit as the default viewer for Microsoft Word documents:
+.sp
+.br
+	com.apple.TextEdit    com.microsoft.word.doc    viewer
+.br
+.sp
+Set VLC as the default viewer for files with .m4v extensions:
+.sp
+.br
+	org.videolan.vlc   m4v	viewer
+.br
+.sp
+Set iHook as the default executor of shell scripts:
+.sp
+.br
+	edu.umich.iHook    public.shell-script    shell
+.br
+.sp
+Set Xcode as the default editor for C source files:
+.sp
+.br
+	com.apple.Xcode    public.c-source    editor
+.br
+.sp
+.SH OPTIONS
+.TP 19
+.BI \-d\  uti
+display the default handler for
+.I uti
+and exit.
+.TP 19
+.B \-h
+print usage and exit.
+.TP 19
+.BI \-l\  uti
+display all handlers for
+.I uti
+and exit.
+.TP 19
+.BI \-s
+set the handler from data provided on the command line.
+.TP 19
+.B \-V
+print version number and exit.
+.TP 19
+.B \-v
+verbose output.
+.TP 19
+.BI \-x\  ext
+print information describing the default application for extension
+.IR ext .
+.sp
+.SH EXIT STATUS
+.TP 5
+0
+All settings applied or displayed successfully.
+.TP 5
+1
+Settings could not be applied, or the UTI has no handler.
+.TP 5
+>1
+Error.
+.sp
+.SH MORE INFO
+Mac OS X ships with a number of UTIs already defined. Most third-party
+software is responsible for defining its own UTIs. Apple documents UTIs
+in the Apple Developer Connection Library at:
+.sp
+.br
+	http://developer.apple.com/referencelibrary/
+.br
+.sp
+More technical information, including APIs, can be found at:
+.sp
+.br
+	http://developer.apple.com/macosx/uniformtypeidentifiers.html
+.br
+.sp
+To get a list of UTIs on your system, you can use the following command line:
+.sp
+.br
+	\`locate lsregister\` -dump | grep '[[:space:]]uti:' \\
+.br
+		| awk '{ print $2 }' | sort | uniq
+.sp
+.SH SEE ALSO
+plutil(1), plist(5)

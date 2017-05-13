@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#  munki-bootstrap-postscript.sh
+#  
+#
+#  Created by Jacob F. Grant on 12/15/16.
+#
+#  Updated: 2/8/17
+#
+
+sudo touch "$3"/var/db/.AppleSetupDone
+
+sudo touch /Library/Receipts/.SetupRegComplete
+
+exit 0

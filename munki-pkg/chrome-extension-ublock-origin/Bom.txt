@@ -1,0 +1,7 @@
+.	40755	0/0
+./Library	40755	0/0
+./Library/Application Support	40755	0/80
+./Library/Application Support/Google	40755	0/80
+./Library/Application Support/Google/Chrome	40755	0/80
+./Library/Application Support/Google/Chrome/External Extensions	40755	0/80
+./Library/Application Support/Google/Chrome/External Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm.json	100644	0/0	79	2343193069
