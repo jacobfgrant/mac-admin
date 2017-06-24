@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
-#  munki-pkg-make.py
+#  build-munki-pkg.py
 #
 #
 #  Created by Jacob F. Grant on 5/13/17.
+#  Updated by Jacob F. Grant on 6/21/17.
 #
 #  Syncs permissions and builds all packages in a given directory
 #  using munki-pkg.
@@ -102,7 +103,7 @@ def movePackage(currentDir, pkgDir, quiet=False):
 
 
 def main():
-    #
+    # Parse script arguments
     mainParser = argparse.ArgumentParser(
         description='Syncs permissions and then builds multiple packages at a time using the munki-pkg tool.')
     mainParser.add_argument(
@@ -123,10 +124,12 @@ def main():
         return 1
             
     # Check if munkipkg executable is in PATH env
-    if not inPath('munkipkg'):
+    exe_path = inPath('munkipkg')
+    if not exe_path:
         print >> sys.stderr, "munkipkg not found in PATH"
         return 1
     
+    # Check if passed directory is in fact a directory
     currentDir = args.directory
     if not os.path.isdir(currentDir):
         print >> sys.stderr, currentDir, "is not a directory"
