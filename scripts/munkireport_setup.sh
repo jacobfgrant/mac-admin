@@ -1,72 +1,92 @@
 #!/bin/bash
 #
-# Sets up a Munkireport on a
+# Sets up Munkireport on a
 # a new Ubuntu 16.04 Server.
 #
 # Written by: Jacob F. Grant
 # Written: 02/19/2017
-# Updated: 04/04/2017
+# Updated: 06/24/2017
 #
+
+# Set variables
+MR_SQL_PASSWORD='munkireportmysqlpassword' 
 
 
 # Installing required updates/software:
 sudo apt-get update
 sudo apt-get upgrade -y
-#sudo apt-get dist-upgrade -y
 sudo apt-get install -y nginx php7.0-fpm php7.0-mysql php7.0-xml #php7.0-ldap
 # Note: php7.0-ldap only necessary if binding to AD/LDAP
 
 
 # Install MySQL & run installation script:
 sudo apt-get install -y mysql-client mysql-server
-
-sudo mysql_secure_installation #--use-default
+sudo mysql_secure_installation
 
 
 # Create munkireport database:
-echo "CREATE DATABASE munkireport CHARACTER SET utf8 COLLATE utf8_bin;" | mysql -u root -p
-#echo "CREATE USER 'USERNAME'@'localhost' IDENTIFIED BY 'PASSWORD';" | mysql -u root -p
-echo "CREATE USER 'munkireport_user'@'localhost' IDENTIFIED BY 'munkireport';" | mysql -u root -p
-#echo "GRANT ALL PRIVILEGES ON munkireport.* TO 'USERNAME'@'localhost' IDENTIFIED BY 'PASSWORD';" | mysql -u root -p
-echo "GRANT ALL PRIVILEGES ON munkireport.* TO 'munkireport_user'@'localhost' IDENTIFIED BY 'hello';" | mysql -u root -p
-echo "FLUSH PRIVILEGES;" | mysql -u root -p
+echo
+echo 'Enter MySQL root password to create munkireport MySQL user/database'
+echo \
+"CREATE DATABASE munkireport CHARACTER SET utf8 COLLATE utf8_bin;
+CREATE USER 'munkireport_user'@'localhost' IDENTIFIED BY '$MR_SQL_PASSWORD';
+GRANT ALL PRIVILEGES ON munkireport.* TO 'munkireport_user'@'localhost' IDENTIFIED BY '$MR_SQL_PASSWORD';
+FLUSH PRIVILEGES;" \
+| mysql -u root -p
 
 
 # Modify cgi.fix_pathinfo in php.ini:
 sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php/7.0/fpm/php.ini
 
-sudo systemctl restart php7.0-fpm
-
 
 # Install munkireport:
-sudo git clone https://github.com/munkireport/munkireport-php /usr/share/nginx/html/report
-
-sudo ln -s /usr/share/nginx/html/report ~/report
+sudo git clone https://github.com/munkireport/munkireport-php /usr/share/nginx/html/munkireport
+sudo ln -s /usr/share/nginx/html/munkireport ~/munkireport
 
 
 # Set up config.php:
-sudo bash -c "cat > /usr/share/nginx/html/report/config.php" << EOF
+sudo bash -c "cat > /usr/share/nginx/html/munkireport/config.php" << EOF
 <?php if ( ! defined( 'KISS' ) ) exit;
 
+/*
+|===============================================
+| MunkiReport Server Configuration
+|===============================================
+| Visit https://github.com/munkireport/munkireport-php/wiki/Server-Configuration for more information on configuration options
+*/
 \$conf['index_page'] = 'index.php?';
 \$conf['sitename'] = 'MunkiReport';
 \$conf['allow_migrations'] = FALSE;
 \$conf['debug'] = TRUE;
 \$conf['timezone'] = @date_default_timezone_get(America/Los_Angles); //your time zone see http://php.net/manual/en/timezones.php
 \$conf['vnc_link'] = "vnc://%s:5900";
-\$conf['ssh_link'] = "ssh://$USER@%s";
+\$conf['ssh_link'] = "ssh://ladmin@%s";
 ini_set('session.cookie_lifetime', 43200);
 \$conf['locale'] = 'en_US';
 \$conf['lang'] = 'en';
+\$conf['temperature_unit'] = 'F';
+\$conf['disk_thresholds'] = array('danger' => 25, 'warning' => 100);
 \$conf['keep_previous_displays'] = TRUE;
+
+// Require HTTPS
+//\$conf['auth_secure'] = TRUE;
 
 /*
 |===============================================
 | Authorized Users of Munki Report
 |===============================================
-| Visit http://yourserver.example.com/report/index.php?/auth/generate to generate additional local values
+| Visit http://yourserver.example.com/munkireport/index.php?/auth/generate to generate additional local values
 */
 \$auth_config['root'] = '\$P\$BUqxGuzR2VfbSvOtjxlwsHTLIMTmuw0'; // Password is root
+
+// MunkiReport Admins
+//\$conf['roles']['admin'] = array();
+
+// MunkiReport Users
+//\$conf['roles']['user'] = array();
+
+// Client Secret Passphrase
+//\$conf['client_passphrases'] = array();
 
 /*
 |===============================================
@@ -75,25 +95,25 @@ ini_set('session.cookie_lifetime', 43200);
 */
 \$conf['pdo_dsn'] = 'mysql:host=localhost;dbname=munkireport';
 \$conf['pdo_user'] = 'munkireport_user';
-\$conf['pdo_pass'] = 'munkireport';
+\$conf['pdo_pass'] = '${MR_SQL_PASSWORD}';
 \$conf['pdo_opts'] = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 EOF
 
 
-# Backup default nginx config and create our own:
-sudo mv /etc/nginx/sites-enabled/default ~/default.bkup
+# Get IP address
+ipaddr=$(ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')
 
 
 # Configure nginx:
-sudo bash -c "cat > /etc/nginx/sites-enabled/default" << EOF
+sudo bash -c "cat > /etc/nginx/sites-available/munkireport" << EOF
 server {
     listen 80 default_server;
-    listen [::]:80 default_server ipv6only=on;
+    listen [::]:80 default_server;
+
+    server_name ${ipaddr}; # Change this to your Munkireport FQDN
 
     root /usr/share/nginx/html;
     index index.php index.html index.htm;
-
-    server_name munki;
 
     error_page 404 /404.html;
     error_page 500 502 503 504 /50x.html;
@@ -101,7 +121,7 @@ server {
         root /usr/share/nginx/html;
     }
 
-    location /report {
+    location /munkireport {
         try_files \$uri \$uri/ =404;
     }
 
@@ -114,18 +134,18 @@ server {
         include fastcgi_params;
     }
 
-    location /munki_repo/ {
-      alias /usr/local/munki_repo/;
-      autoindex off;
-      #auth_basic "Restricted";
-      #auth_basic_user_file /etc/nginx/.htpasswd;
-  }
 }
 EOF
 
 
+# Configure nginx server block symlinks
+sudo ln -s /etc/nginx/sites-available/munkireport /etc/nginx/sites-enabled/munkireport
+sudo rm /etc/nginx/sites-enabled/default
+
+
 # Modify nginx.conf:
 sudo sed -i 's:default_type application/octet-stream;:#default_type application/octet-stream;:' /etc/nginx/nginx.conf
+
 
 # Restart services
 sudo systemctl restart nginx
