@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadDescription</key>
+        <string>Installs Google Chrome extensions</string>
+        <key>PayloadDisplayName</key>
+        <string>Install Chrome Extensions</string>
+        <key>PayloadIdentifier</key>
+        <string>com.jacobfgrant.chrome.installextensions</string>
+        <key>PayloadOrganization</key>
+        <string></string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>B129D16B-E906-4A59-85CC-08C04470B01F</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Install Chrome Extensions</string>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.1D808EA3-FBE8-48C1-8DF4-55EE706DD548</string>
+                <key>PayloadType</key>
+                <string>com.apple.ManagedClient.preferences</string>
+                <key>PayloadUUID</key>
+                <string>1D808EA3-FBE8-48C1-8DF4-55EE706DD548</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>PayloadContent</key>
+                <dict>
+                    <key>com.google.Chrome</key>
+                    <dict>
+                        <key>Forced</key>
+                        <array>
+                            <dict>
+                                <key>mcx_preference_settings</key>
+                                <dict>
+                                    <key>ExtensionInstallForcelist</key>
+                                    <array>
+                                        <string>cjpalhdlnbpafiamejdnhcphjbkeiagm;http://clients2.google.com/service/update2/crx</string>
+                                        <string>gcbommkclmclpchllfjekcdonpmejbdp;http://clients2.google.com/service/update2/crx</string>
+                                        <string>hdokiejnpimakedhajhdlcegeplioahd;http://clients2.google.com/service/update2/crx</string>
+                                    </array>
+                                </dict>
+                            </dict>
+                        </array>
+                    </dict>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>
