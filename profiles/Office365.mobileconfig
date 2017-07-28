@@ -44,12 +44,80 @@
 						<dict>
 							<key>mcx_preference_settings</key>
 							<dict>
+                                <key>ChannelName</key>
+                                <string>Production</string>
 								<key>HowToCheck</key>
 								<string>Manual</string>
 								<key>LastUpdate</key>
 								<date>2001-01-01T00:00:00Z</date>
 								<key>SendAllTelemetryEnabled</key>
 								<false/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 Error Reporting Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.FDAC1572-424F-4742-87A9-8B37A547A1C3</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>FDAC1572-424F-4742-87A9-8B37A547A1C3</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.errorreporting</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>IsAttachedEnabled</key>
+                                <false/>
+                                <key>IsStoreLastCrashEnabled</key>
+                                <true/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 Excel Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.6CF12333-746C-4B89-9389-52E4702695E9</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>6CF12333-746C-4B89-9389-52E4702695E9</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.Excel</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>SendAllTelemetryEnabled</key>
+                                <false/>
+                                <key>SendASmileEnabled</key>
+                                <true/>
+                                <key>kSubUIAppCompletedFirstRunSetup1507</key>
+                                <true/>
 							</dict>
 						</dict>
 					</array>
@@ -71,17 +139,285 @@
             <integer>1</integer>
             <key>PayloadContent</key>
 			<dict>
-				<key>com.microsoft.officeprefs</key>
+				<key>com.microsoft.office</key>
 				<dict>
 					<key>Forced</key>
 					<array>
 						<dict>
 							<key>mcx_preference_settings</key>
 							<dict>
+                                <key>kCUIThemePreferencesThemeKeyPath</key>
+                                <integer>0</integer>
 								<key>DefaultsToLocalOpenSave</key>
 								<true/>
+                                <key>ShowWhatsNewOnLaunch</key>
+                                <false/>
 								<key>VisualBasicMacroExecutionState</key>
 								<string>DisabledWithWarnings</string>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 OneDrive Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.3B583F4A-FF4B-4B02-882E-1E87A942F1F2</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>3B583F4A-FF4B-4B02-882E-1E87A942F1F2</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.OneDrive</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>DefaultToBusinessFRE</key>
+                                <true/>
+                                <key>DisablePersonalSync</key>
+                                <false/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 OneNote Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.76B1E667-F6ED-4111-8C80-969C72E1F9A8</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>76B1E667-F6ED-4111-8C80-969C72E1F9A8</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.onenote.mac</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>SendAllTelemetryEnabled</key>
+                                <false/>
+                                <key>SendASmileEnabled</key>
+                                <true/>
+                                <key>kSubUIAppCompletedFirstRunSetup1507</key>
+                                <true/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 Outlook Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.6875826B-3291-4D09-82F5-91F3681C550A</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>6875826B-3291-4D09-82F5-91F3681C550A</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.Outlook</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>FirstRunExperienceCompletedO15</key>
+                                <true/>
+                                <key>SendAllTelemetryEnabled</key>
+                                <false/>
+                                <key>SendASmileEnabled</key>
+                                <true/>
+                                <key>kSubUIAppCompletedFirstRunSetup1507</key>
+                                <true/>
+                                <key>TrustO365AutodiscoverRedirect</key>
+                                <true/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 PowerPoint Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.561EBB1A-06DF-454D-9818-CDBA7D5A019C</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>561EBB1A-06DF-454D-9818-CDBA7D5A019C</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.Powerpoint</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>SendAllTelemetryEnabled</key>
+                                <false/>
+                                <key>SendASmileEnabled</key>
+                                <true/>
+                                <key>kSubUIAppCompletedFirstRunSetup1507</key>
+                                <true/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 Word Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.64F676A2-DFA9-4D3D-820E-991635D0F28D</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>64F676A2-DFA9-4D3D-820E-991635D0F28D</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.Word</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>SendAllTelemetryEnabled</key>
+                                <false/>
+                                <key>SendASmileEnabled</key>
+                                <true/>
+                                <key>kSubUIAppCompletedFirstRunSetup1507</key>
+                                <true/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 Skype Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.EA23187E-C74A-4B67-A91D-F7B4ACC6249F</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>EA23187E-C74A-4B67-A91D-F7B4ACC6249F</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.skype</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>SKAllowStealthUpgrade</key>
+                                <true/>
+                                <key>SKSilentUpgradeNoticeShown</key>
+                                <true/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 Telemetry Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.325245DD-295C-4023-BC2B-26210C19129B</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>325245DD-295C-4023-BC2B-26210C19129B</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.Office365ServiceV2</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>SendAllTelemetryEnabled</key>
+                                <false/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Office 365 Telemetry Preferences</string>
+            <key>PayloadEnabled</key>
+            <true/>
+            <key>PayloadIdentifier</key>
+            <string>com.jacobfgrant.profiles.24666744-354C-4BEF-A5B2-E3555EBA6CD4</string>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+            <key>PayloadUUID</key>
+            <string>24666744-354C-4BEF-A5B2-E3555EBA6CD4</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadContent</key>
+			<dict>
+				<key>com.microsoft.autoupdate.fba</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+                                <key>SendAllTelemetryEnabled</key>
+                                <false/>
 							</dict>
 						</dict>
 					</array>
