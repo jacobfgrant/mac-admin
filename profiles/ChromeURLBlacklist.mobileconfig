@@ -3,11 +3,11 @@
 <plist version="1.0">
     <dict>
         <key>PayloadDescription</key>
-        <string>Configures Google Chrome preferences</string>
+        <string>Configures Google Chrome URL blacklist</string>
         <key>PayloadDisplayName</key>
-        <string>Chrome Preferences</string>
+        <string>Chrome URL Blacklist</string>
         <key>PayloadIdentifier</key>
-        <string>com.jacobfgrant.chrome.preferences</string>
+        <string>com.jacobfgrant.chrome.urlblacklist</string>
         <key>PayloadOrganization</key>
         <string></string>
         <key>PayloadRemovalDisallowed</key>
@@ -17,22 +17,22 @@
         <key>PayloadType</key>
         <string>Configuration</string>
         <key>PayloadUUID</key>
-        <string>9F5F94DD-BEF8-44EC-A077-A59B7512C94E</string>
+        <string>177B0446-DC83-4382-A8D9-2A76261B79C0</string>
         <key>PayloadVersion</key>
         <integer>1</integer>
         <key>PayloadContent</key>
         <array>
             <dict>
                 <key>PayloadDisplayName</key>
-                <string>Chrome Preferences</string>
+                <string>Chrome URL Blacklist</string>
                 <key>PayloadEnabled</key>
                 <true/>
                 <key>PayloadIdentifier</key>
-                <string>com.jacobfgrant.profiles.71112BD6-8224-48B4-9E4E-BA3A3742F46D</string>
+                <string>com.jacobfgrant.profiles.96D4D16C-BE8D-4CA3-87A4-836190F98B64</string>
                 <key>PayloadType</key>
                 <string>com.apple.ManagedClient.preferences</string>
                 <key>PayloadUUID</key>
-                <string>71112BD6-8224-48B4-9E4E-BA3A3742F46D</string>
+                <string>96D4D16C-BE8D-4CA3-87A4-836190F98B64</string>
                 <key>PayloadVersion</key>
                 <integer>1</integer>
                 <key>PayloadContent</key>
@@ -44,26 +44,10 @@
                             <dict>
                                 <key>mcx_preference_settings</key>
                                 <dict>
-                                    <key>AutoFillEnabled</key>
-                                    <false/>
-                                    <key>DefaultBrowserSettingEnabled</key>
-                                    <true/>
-                                    <key>BookmarkBarEnabled</key>
-                                    <true/>
-                                    <key>HideWebStorePromo</key>
-                                    <true/>
-                                    <key>HomepageIsNewTabPage</key>
-                                    <false/>
-                                    <key>HomepageLocation</key>
-                                    <string></string>
-                                    <key>PasswordManagerEnabled</key>
-                                    <false/>
-                                    <key>RestoreOnStartup</key>
-                                    <integer>0</integer>
-                                    <key>ShowHomeButton</key>
-                                    <true/>
-                                    <key>SyncDisabled</key>
-                                    <true/>
+                                    <key>URLBlacklist</key>
+                                    <array>
+                                        <string></string>
+                                    </array>
                                 </dict>
                             </dict>
                         </array>
