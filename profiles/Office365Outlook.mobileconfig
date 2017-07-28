@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadDescription</key>
+        <string>Configures Office 365 Outlook preferences</string>
+        <key>PayloadDisplayName</key>
+        <string>Office 365 - Outlook</string>
+        <key>PayloadIdentifier</key>
+        <string>com.jacobfgrant.office365.outlook</string>
+        <key>PayloadOrganization</key>
+        <string></string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>EEE64641-BFBB-4338-B11A-065F757A3ADD</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Office 365 Outlook Preferences</string>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.6875826B-3291-4D09-82F5-91F3681C550A</string>
+                <key>PayloadType</key>
+                <string>com.apple.ManagedClient.preferences</string>
+                <key>PayloadUUID</key>
+                <string>6875826B-3291-4D09-82F5-91F3681C550A</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>PayloadContent</key>
+                <dict>
+                    <key>com.microsoft.Outlook</key>
+                    <dict>
+                        <key>Forced</key>
+                        <array>
+                            <dict>
+                                <key>mcx_preference_settings</key>
+                                <dict>
+                                    <key>FirstRunExperienceCompletedO15</key>
+                                    <true/>
+                                    <key>SendAllTelemetryEnabled</key>
+                                    <false/>
+                                    <key>SendASmileEnabled</key>
+                                    <true/>
+                                    <key>kSubUIAppCompletedFirstRunSetup1507</key>
+                                    <true/>
+                                    <key>TrustO365AutodiscoverRedirect</key>
+                                    <true/>
+                                </dict>
+                            </dict>
+                        </array>
+                    </dict>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>

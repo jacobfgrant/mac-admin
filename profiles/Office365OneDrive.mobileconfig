@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadDescription</key>
+        <string>Configures Office 365 OneDrive preferences</string>
+        <key>PayloadDisplayName</key>
+        <string>Office 365 - OneDrive</string>
+        <key>PayloadIdentifier</key>
+        <string>com.jacobfgrant.office365.onedrive</string>
+        <key>PayloadOrganization</key>
+        <string></string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>DAF99019-0E17-4AA8-9ACC-22CED44714B6</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Office 365 OneDrive Preferences</string>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.3B583F4A-FF4B-4B02-882E-1E87A942F1F2</string>
+                <key>PayloadType</key>
+                <string>com.apple.ManagedClient.preferences</string>
+                <key>PayloadUUID</key>
+                <string>3B583F4A-FF4B-4B02-882E-1E87A942F1F2</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>PayloadContent</key>
+                <dict>
+                    <key>com.microsoft.OneDrive</key>
+                    <dict>
+                        <key>Forced</key>
+                        <array>
+                            <dict>
+                                <key>mcx_preference_settings</key>
+                                <dict>
+                                    <key>DefaultToBusinessFRE</key>
+                                    <true/>
+                                    <key>DisablePersonalSync</key>
+                                    <false/>
+                                </dict>
+                            </dict>
+                        </array>
+                    </dict>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>
