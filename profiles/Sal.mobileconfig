@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+        <key>PayloadDescription</key>
+        <string>Configures Sal preferences</string>
+		<key>PayloadDisplayName</key>
+		<string>Sal</string>
+		<key>PayloadIdentifier</key>
+		<string>com.jacobfgrant.sal</string>
+		<key>PayloadOrganization</key>
+		<string></string>
+		<key>PayloadRemovalDisallowed</key>
+		<true/>
+		<key>PayloadScope</key>
+		<string>System</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>83F755E6-F0B5-42F8-9669-5C6FFBF29986</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+                <key>PayloadDisplayName</key>
+                <string>Sal Client Settings</string>
+				<key>PayloadEnabled</key>
+				<true/>
+				<key>PayloadIdentifier</key>
+				<string>com.jacobfgrant.profiles.D1B2167D-B736-43EC-BC19-9DD2FD24EC95</string>
+				<key>PayloadType</key>
+				<string>com.apple.ManagedClient.preferences</string>
+				<key>PayloadUUID</key>
+				<string>D1B2167D-B736-43EC-BC19-9DD2FD24EC95</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+				<key>PayloadContent</key>
+				<dict>
+					<key>com.github.salopensource.sal</key>
+					<dict>
+						<key>Forced</key>
+						<array>
+							<dict>
+								<key>mcx_preference_settings</key>
+								<dict>
+									<key>ServerURL</key>
+									<string></string>
+									<key>key</key>
+									<string></string>
+									<key>BasicAuth</key>
+									<true/>
+									<key>SyncScripts</key>
+									<true/>
+									<key>SkipFacts</key>
+									<array/>
+								</dict>
+							</dict>
+						</array>
+					</dict>
+				</dict>
+			</dict>
+		</array>
+	</dict>
+</plist>
