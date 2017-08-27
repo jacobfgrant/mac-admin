@@ -17,6 +17,8 @@ import os
 import subprocess
 import argparse
 import shutil
+import pwd
+import grp
 
 
 def inPath(exe):
@@ -60,6 +62,22 @@ def syncPermissions(pkgDir, quiet=False):
         return subprocess.call(['munkipkg', '--sync', pkgDir])
 
 
+def resetOwner(pkgDir, quiet=False):
+    """Resets the ownership of package files/directories"""
+    pkgUid = os.stat(pkgDir).st_uid
+    pkgGid = os.stat(pkgDir).st_gid
+    pkgName = pwd.getpwuid(pkgUid)[0]
+    pkgGroup = grp.getgrgid(pkgGid)[0]
+    if not quiet:
+        print >> sys.stdout, "buildMunkiPkg: setting ownership of" + pkgDir + "to" + pkgName + ":" + pkgGroup
+    for root, dirs, files in os.walk(pkgDir):
+        for d in dirs:
+            os.chown(os.path.join(root, d), pkgUid, pkgGid)
+        for f in files:
+            os.chown(os.path.join(root, f), pkgUid, pkgGid)
+    return
+
+
 def makePackage(pkgDir, quiet=False):
     """Build munkipkg package."""
     if quiet:
@@ -77,11 +95,18 @@ def movePackage(buildLocation, pkgDir, quiet=False):
         print >> sys.stderr, "buildMunkiPkg: no build directory in", pkgDir
         return
 
+    pkgUid = os.stat(pkgDir).st_uid
+    pkgGid = os.stat(pkgDir).st_gid
+    pkgName = pwd.getpwuid(pkgUid)[0]
+    pkgGroup = grp.getgrgid(pkgGid)[0]
+
     # Check for build directory in buildLocation
     # Create directory if does not exist
     buildLocationDir = os.path.join(buildLocation, 'build')
     if not os.path.exists(buildLocationDir):
+        print >> sys.stdout, "buildMunkiPkg: creating ", buildLocationDir
         os.makedirs(buildLocationDir)
+        os.chown(buildLocationDir, pkgUid, pkgGid)
 
     # Moves all files ending with '.pkg'
     # Deletes directory if empty
@@ -91,6 +116,7 @@ def movePackage(buildLocation, pkgDir, quiet=False):
             oldPkg = os.path.join(pkgDirBuild, pkg)
             newPkg = os.path.join(buildLocationDir, pkg)
             os.rename(oldPkg, newPkg)
+            os.chown(newPkg, pkgUid, pkgGid)
             if not quiet:
                 print >> sys.stdout, "buildMunkiPkg:", pkg, "moved to", buildLocationDir
         else:
@@ -113,6 +139,13 @@ def main():
         help="Suppress normal output messages. Errors will still be printed to stderr."
     )
     mainParser.add_argument(
+        '-o',
+        '--owner',
+        action="store_true",
+        help=("Sets ownership of directories/files in packages to those specified in Bom.txt. "
+              "If you do not include this option, files/directories will be reset to current owner.")
+    )
+    mainParser.add_argument(
         '-d',
         '--directory',
         help="Runs buildMunkiPkg.py on the given directory. Defaults to current directory.",
@@ -124,8 +157,9 @@ def main():
         help="Location of directory with built packages. Defaults to current directory.",
         default='.'
     )
-    args = mainParser.parse_args()        
+    args = mainParser.parse_args()
     quiet = args.quiet
+    owner = args.owner
 
     # Check if script is running as root
     if os.geteuid() != 0:
@@ -154,6 +188,8 @@ def main():
         syncPermissions(pkgDir, quiet)
         makePackage(pkgDir, quiet)
         movePackage(buildLocation, pkgDir, quiet)
+        if not owner:
+            resetOwner(pkgDir, quiet)
     else:
         print >> sys.stdout, "buildMunkiPkg: examining directories in", currentDir
         for subDir in os.listdir(currentDir):
@@ -163,6 +199,8 @@ def main():
                     syncPermissions(pkgDir, quiet)
                     makePackage(pkgDir, quiet)
                     movePackage(buildLocation, pkgDir, quiet)
+                    if not owner:
+                        resetOwner(pkgDir, quiet)
     return
 
 

@@ -2,3 +2,6 @@
 
 #.DS_Store files
 .DS_Store
+
+# MacOS Package files
+*.pkg
