@@ -5,7 +5,7 @@
         <key>PayloadDescription</key>
         <string>Installs Google Chrome extensions</string>
         <key>PayloadDisplayName</key>
-        <string>Install Chrome Extensions</string>
+        <string>Chrome Install Extensions</string>
         <key>PayloadIdentifier</key>
         <string>com.jacobfgrant.chrome.installextensions</string>
         <key>PayloadOrganization</key>
@@ -24,7 +24,7 @@
         <array>
             <dict>
                 <key>PayloadDisplayName</key>
-                <string>Install Chrome Extensions</string>
+                <string>Chrome Install Extensions</string>
                 <key>PayloadEnabled</key>
                 <true/>
                 <key>PayloadIdentifier</key>

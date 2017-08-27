@@ -65,7 +65,7 @@
 									<key>NewTabBehavior</key>
 									<integer>4</integer>
 									<key>NewWindowBehavior</key>
-									<integer>0</integer>
+									<integer>4</integer>
 									<key>SafariGeolocationPermissionPolicy</key>
 									<integer>2</integer>
 									<key>SendDoNotTrackHTTPHeader</key>
