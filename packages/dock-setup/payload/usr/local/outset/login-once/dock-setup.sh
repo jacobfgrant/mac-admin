@@ -3,10 +3,11 @@
 #  dock-setup.sh
 #  
 #
-#  Created by Jacob F. Grant on 2/9/17.
+#  Created by Jacob F. Grant
 #
+#  Created: 02/09/17
 #
-#  Requires docutil (https://github.com/kcrawford/dockutil)
+#  Requires docutil: https://github.com/kcrawford/dockutil
 #
 
 # Set path of DOCKUTIL

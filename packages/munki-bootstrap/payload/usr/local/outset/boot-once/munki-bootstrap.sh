@@ -3,9 +3,10 @@
 #  munki-bootstrap.sh
 #  
 #
-#  Created by Jacob F. Grant on 12/15/16
+#  Created by Jacob F. Grant
 #
-#  Updated: 2/8/17.
+#  Created: 12/15/16
+#  Updated: 02/08/17
 #
 
 if [ -f /Library/Preferences/ManagedInstalls.plist ]

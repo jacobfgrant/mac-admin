@@ -5,8 +5,7 @@
 #
 #  Created by Jacob F. Grant
 #
-#  Created: 8/27/17
-#  Updated: 8/27/17
+#  Created: 08/27/17
 #
 
 # Check if Google Chrome is installed

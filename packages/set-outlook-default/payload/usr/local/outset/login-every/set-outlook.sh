@@ -3,8 +3,9 @@
 #  set-outlook.sh
 #  
 #
-#  Created by Jacob F. Grant on 4/20/17.
+#  Created by Jacob F. Grant
 #
+#  Created: 04/20/17
 #
 #  Requires duti
 #

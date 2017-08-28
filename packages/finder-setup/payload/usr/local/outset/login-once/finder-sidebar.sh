@@ -3,8 +3,9 @@
 #  finder-sidebar.sh
 #  
 #
-#  Created by Jacob F. Grant on 2/13/17.
+#  Created by Jacob F. Grant
 #
+#  Created: 02/13/17
 #
 #  Requires mysides: https://github.com/mosen/mysides
 #

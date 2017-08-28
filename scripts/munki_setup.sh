@@ -1,11 +1,12 @@
 #!/bin/bash
 #
-# Sets up a basic Munki repo on
-# a new Ubuntu 16.04 Server.
+#  Sets up a basic Munki repo on
+#  a new Ubuntu 16.04 Server.
 #
-# Written by: Jacob F. Grant
-# Written: 08/19/2016
-# Updated: 06/24/2017
+#  Created by Jacob F. Grant
+#
+#  Written: 08/19/2016
+#  Updated: 06/24/2017
 #
 
 # Installing required updates/software:

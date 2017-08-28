@@ -3,14 +3,22 @@
 #  buildMunkiPkg.py
 #
 #
-#  Created by Jacob F. Grant on 05/13/17.
-#  Updated by Jacob F. Grant on 06/27/17.
+#  Created by Jacob F. Grant
 #
-#  Syncs permissions and builds all packages
-#  in a directory using the munkipkg tool.
+#  Written: 05/13/17
+#  Updated: 08/28/17
 #
-#  Must be run as sudo/root.
-#
+
+"""
+buildMunkiPkg
+
+A script to sync permissions and build all MacOS
+packages in a directory using the munkipkg tool.
+
+https://github.com/munki/munki-pkg
+
+Must be run with sudo.
+"""
 
 import sys
 import os

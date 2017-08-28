@@ -3,7 +3,9 @@
 #  ard-setup.sh
 #  
 #
-#  Created by Jacob F. Grant on 2/10/17.
+#  Created by Jacob F. Grant
+#
+#  Created: 02/10/17
 #
 
 # Turn on Remote Desktop Sharing, allow access for specified users

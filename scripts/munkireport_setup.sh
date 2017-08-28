@@ -1,11 +1,12 @@
 #!/bin/bash
 #
-# Sets up Munkireport on a
-# a new Ubuntu 16.04 Server.
+#  Sets up Munkireport on a
+#  a new Ubuntu 16.04 Server.
 #
-# Written by: Jacob F. Grant
-# Written: 02/19/2017
-# Updated: 06/24/2017
+#  Created by Jacob F. Grant
+#
+#  Created: 02/19/2017
+#  Updated: 06/24/2017
 #
 
 # Set variables
