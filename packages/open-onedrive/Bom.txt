@@ -1,0 +1,6 @@
+.	40755	0/0
+./usr	40755	0/0
+./usr/local	40755	0/0
+./usr/local/outset	40755	0/0
+./usr/local/outset/login-every	40755	0/0
+./usr/local/outset/login-every/open-onedrive.sh	100755	0/0	254	2018352875

@@ -1,0 +1,11 @@
+.	40755	0/0
+./usr	40755	0/0
+./usr/local	40755	0/0
+./usr/local/munki	40755	0/0
+./usr/local/munki/middleware_cloudfront.py	100600	0/0	2373	1837537193
+./usr/local/munki/munkiaccess.pem	100400	0/0	64	1181520792
+./var	40755	0/0
+./var/root	40755	0/0
+./var/root/Library	40755	0/0
+./var/root/Library/Preferences	40755	0/0
+./var/root/Library/Preferences/com.github.aaronburchfield.cloudfront.plist	100600	0/0	320	1437987033

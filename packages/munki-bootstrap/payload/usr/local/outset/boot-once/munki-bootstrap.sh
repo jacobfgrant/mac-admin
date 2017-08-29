@@ -6,17 +6,21 @@
 #  Created by Jacob F. Grant
 #
 #  Created: 12/15/16
-#  Updated: 02/08/17
+#  Updated: 08/28/17
 #
+
+# Set Munki repo URL
+MUNKI_REPO_URL='http://munki-server/munki_repo/'
+
 
 if [ -f /Library/Preferences/ManagedInstalls.plist ]
 then
-    sudo rm -f /usr/local/outset/boot-once/munki_bootstrap.sh
-exit 0
+    rm -f /usr/local/outset/boot-once/munki_bootstrap.sh
+    exit 0
 fi
 
-sudo defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL "http://munki-server/munki_repo/"
+defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL $MUNKI_REPO_URL
 
-sudo touch /Users/Shared/.com.googlecode.munki.checkandinstallatstartup
+touch /Users/Shared/.com.googlecode.munki.checkandinstallatstartup
 
-sudo shutdown -r
+shutdown -r
