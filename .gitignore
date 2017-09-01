@@ -1,5 +1,8 @@
 #.gitignore file for /jacobfgrant/mac-admin
 
+# Certificates
+*.pem
+
 #.DS_Store files
 .DS_Store
 
