@@ -9,7 +9,7 @@
 	<key>install_location</key>
 	<string>/</string>
 	<key>name</key>
-	<string>dock-setup.pkg</string>
+	<string>dock-setup-${version}.pkg</string>
 	<key>postinstall_action</key>
 	<string>none</string>
 	<key>version</key>
