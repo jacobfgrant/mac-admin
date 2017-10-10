@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadDescription</key>
+        <string>Installs Google Chrome managed bookmarks</string>
+        <key>PayloadDisplayName</key>
+        <string>Chrome Managed Bookmarks</string>
+        <key>PayloadIdentifier</key>
+        <string>com.jacobfgrant.chrome.managedbookmarks</string>
+        <key>PayloadOrganization</key>
+        <string></string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>FDC498E6-0838-42BF-975B-82A64619719E</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Chrome Install Extensions</string>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.32691C1F-B935-47E5-9775-F3A157FCAC7A</string>
+                <key>PayloadType</key>
+                <string>com.apple.ManagedClient.preferences</string>
+                <key>PayloadUUID</key>
+                <string>32691C1F-B935-47E5-9775-F3A157FCAC7A</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>PayloadContent</key>
+                <dict>
+                    <key>com.google.Chrome</key>
+                    <dict>
+                        <key>Forced</key>
+                        <array>
+                            <dict>
+                                <key>mcx_preference_settings</key>
+                                <dict>
+                                    <key>ManagedBookmarks</key>
+                                    <array>
+                                        <dict>
+                                            <key>toplevel_name</key>
+                                            <string>Mac Admin Managed Bookmarks</string>
+                                        </dict>
+                                        <dict>
+                                            <key>name</key>
+                                            <string>Google</string>
+                                            <key>url</key>
+                                            <string>google.com</string>
+                                        </dict>
+                                        <dict>
+                                            <key>name</key>
+                                            <string>Youtube</string>
+                                            <key>url</key>
+                                            <string>youtube.com</string>
+                                        </dict>
+                                        <dict>
+                                            <key>children</key>
+                                            <array>
+                                            <dict>
+                                                <key>name</key>
+                                                <string>Chromium</string>
+                                                <key>url</key>
+                                                <string>chromium.org</string>
+                                            </dict>
+                                            <dict>
+                                                <key>name</key>
+                                                <string>Chromium Developers</string>
+                                                <key>url</key>
+                                                <string>dev.chromium.org</string>
+                                            </dict>
+                                            </array>
+                                            <key>name</key>
+                                            <string>Chromium bookmarks</string>
+                                        </dict>
+                                    </array>
+                                </dict>
+                            </dict>
+                        </array>
+                    </dict>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>
