@@ -72,11 +72,33 @@ def gather_launchdinfo(args):
     pkgid.insert(-1, 'launch' + launchdinfo['type'])
     launchdinfo['pkgid'] = '.'.join(pkgid)
 
+    # Additional payload files
+    payload_files = args.additional_files
+    launchdinfo['payload'] = []
+    if payload_files is not None:
+        for pfile in payload_files:
+            payload_file_dict = {}
+            payload_file_dict['file'] = pfile[0]
+            payload_file_dict['name'] = os.path.basename(payload_file_dict['file'])
+            payload_file_dict['location'] = pfile[1]
+            launchdinfo['payload'].append(payload_file_dict)
+
     return launchdinfo
 
 
 def generate_postinstall_script(launchdinfo, pkg_directory):
     """Generate pkg postinstall script"""
+    postinstall_payload = []
+    for pfile in launchdinfo['payload']:
+        postinstall_payload += [
+            'chmod 644 ',
+            pfile['location'],
+            '\n',
+            'chown root:wheel ',
+            pfile['location'],
+            '\n'
+        ]
+
     if launchdinfo['type'] == 'agent':
         postinstall_load_command = [
             'consoleuser=`/usr/bin/stat -f "%Su" /dev/console | /usr/bin/xargs /usr/bin/id -u`\n',
@@ -124,6 +146,7 @@ def generate_postinstall_script(launchdinfo, pkg_directory):
         launchdinfo['location'],
         '\n',
         '\n',
+    ] + postinstall_payload + [
         '\n'
     ] +  postinstall_load_command
 
@@ -168,6 +191,12 @@ def create_pkg_directory(launchdinfo):
             'payload',
             os.path.dirname(launchdinfo['location']).lstrip('/'))
         )
+        for pfile in launchdinfo['payload']:
+            os.makedirs(os.path.join(
+                pkg_directory,
+                'payload',
+                os.path.dirname(pfile['location']).lstrip('/'))
+            )
 
     return pkg_directory
 
@@ -179,6 +208,8 @@ def build_pkg(pkg_directory, quiet):
     else:
         return subprocess.call(['munkipkg', pkg_directory])
 
+
+# Main Program
 
 def main():
     """Main function"""
@@ -196,6 +227,14 @@ def main():
         '--plist',
         help="The .plist file constituting the LaunchDaemon/LaunchAgent.",
         required=True
+    )
+    main_parser.add_argument(
+        '-a',
+        '--additional_files',
+        metavar=('current location,', 'install location'),
+        help="Additional files to be installed by the package. The first element should be the file's location; the second should be the location to be installed. You can use this argument multiple times to install multiple files.",
+        action='append',
+        nargs=2
     )
     main_parser.add_argument(
         '-t',
@@ -229,8 +268,16 @@ def main():
         launchdinfo['plist'],
         os.path.join(pkg_directory, 'payload', os.path.dirname(launchdinfo['location']).lstrip('/'))
     )
+
+    for pfile in launchdinfo['payload']:
+        shutil.copy(
+            pfile['file'],
+            os.path.join(pkg_directory, 'payload', os.path.dirname(pfile['location']).lstrip('/'))
+        )
+
     build_pkg(pkg_directory, quiet)
 
+    # Copy pkg file to output
     shutil.copy(
         os.path.join(
             pkg_directory,
