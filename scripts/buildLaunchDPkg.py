@@ -91,7 +91,7 @@ def generate_postinstall_script(launchdinfo, pkg_directory):
     postinstall_payload = []
     for pfile in launchdinfo['payload']:
         postinstall_payload += [
-            'chmod 644 ',
+            'chmod 755 ',
             pfile['location'],
             '\n',
             'chown root:wheel ',
@@ -100,9 +100,20 @@ def generate_postinstall_script(launchdinfo, pkg_directory):
         ]
 
     if launchdinfo['type'] == 'agent':
-        postinstall_load_command = [
+        postinstall_unload_load = [
+            '# Reload LaunchAgent\n'
+            '\n',
             'consoleuser=`/usr/bin/stat -f "%Su" /dev/console | /usr/bin/xargs /usr/bin/id -u`\n',
             '\n',
+            'if sudo -u \#$consoleuser bash -c "/bin/launchctl list | grep -Fq ',
+            launchdinfo['name'],
+            '"\n',
+            'then\n',
+            '   /bin/launchctl bootout gui/$consoleuser ',
+            launchdinfo['location'],
+            '.plist\n',
+            'fi\n',
+            '\n'
             'if [ "$consoleuser" -eq 0 ]\n',
             'then\n',
             '    exit 0\n',
@@ -110,13 +121,24 @@ def generate_postinstall_script(launchdinfo, pkg_directory):
             '\n',
             '/bin/launchctl bootstrap gui/$consoleuser ',
             launchdinfo['location'],
-            '\n'
+            '.plist\n'
         ]
     else:
-        postinstall_load_command = [
+        postinstall_unload_load = [
+            '# Reload LaunchDaemon\n'
+            '\n',
+            'if launchctl list | grep -Fq "',
+            launchdinfo['name'],
+            '"\n',
+            'then\n',
+            '   /bin/launchctl unload ',
+            launchdinfo['location'],
+            '.plist\n',
+            'fi\n',
+            '\n'
             '/bin/launchctl load ',
             launchdinfo['location'],
-            '\n'
+            '.plist\n'
         ]
 
     postinstall_script = [
@@ -139,16 +161,21 @@ def generate_postinstall_script(launchdinfo, pkg_directory):
         '#\n',
         '\n',
         '\n',
+        '# Set permissions\n'
+        '\n',
         'chmod 644 ',
         launchdinfo['location'],
+        '.plist',
         '\n',
         'chown root:wheel ',
         launchdinfo['location'],
+        '.plist',
         '\n',
         '\n',
     ] + postinstall_payload + [
+        '\n',
         '\n'
-    ] +  postinstall_load_command
+    ] + postinstall_unload_load
 
     output = os.path.join(pkg_directory, 'scripts', 'postinstall')
 
