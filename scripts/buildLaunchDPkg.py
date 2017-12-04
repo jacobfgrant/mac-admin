@@ -16,12 +16,41 @@ Packages a launchd LaunchDaemon/LaunchAgent into a
 pkg file using the munkipkg tool.
 
 https://github.com/munki/munki-pkg
+
+---
+Arguments:
+
+  -h, --help            show the help message and exit
+
+  -q, --quiet           Suppress normal output messages. Errors will still be
+                        printed to stderr.
+
+  -p PLIST, --plist PLIST
+                        The .plist file constituting the
+                        LaunchDaemon/LaunchAgent.
+
+  -a (CURRENT LOCATION, INSTALL LOCATION), --additional_files (CURRENT LOCATION, INSTALL LOCATION)
+                        Additional files to be installed by the package. The
+                        first element should be the file's location; the
+                        second should be the location to be installed. You can
+                        use this argument multiple times to install multiple
+                        files.
+
+  -t {agent,daemon}, --type {agent,daemon}
+                        Specifies whether the package should install a
+                        LaunchAgent or LaunchDaemon (defaults to
+                        LaunchDaemon).
+
+  -v VERSION, --version VERSION
+                        The package version number (defaults to 1.0).
+
+  -o OUTPUT, --output OUTPUT
+                        Output location (defaults to current directory).
 """
 
 
 # Import modules
 
-import sys
 import os
 import time
 import plistlib
@@ -216,14 +245,14 @@ def create_pkg_directory(launchdinfo):
         os.makedirs(os.path.join(
             pkg_directory,
             'payload',
-            os.path.dirname(launchdinfo['location']).lstrip('/'))
-        )
+            os.path.dirname(launchdinfo['location']).lstrip('/')
+        ))
         for pfile in launchdinfo['payload']:
             os.makedirs(os.path.join(
                 pkg_directory,
                 'payload',
-                os.path.dirname(pfile['location']).lstrip('/'))
-            )
+                os.path.dirname(pfile['location']).lstrip('/')
+            ))
 
     return pkg_directory
 
@@ -258,7 +287,7 @@ def main():
     main_parser.add_argument(
         '-a',
         '--additional_files',
-        metavar=('current location,', 'install location'),
+        metavar=('(CURRENT LOCATION,', 'INSTALL LOCATION)'),
         help="Additional files to be installed by the package. The first element should be the file's location; the second should be the location to be installed. You can use this argument multiple times to install multiple files.",
         action='append',
         nargs=2
