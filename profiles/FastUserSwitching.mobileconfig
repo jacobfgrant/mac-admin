@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadDescription</key>
+        <string>Enables fast user switching</string>
+        <key>PayloadDisplayName</key>
+        <string>Fast User Switching</string>
+        <key>PayloadIdentifier</key>
+        <string>ccom.jacobfgrant.fastuserswitching</string>
+        <key>PayloadOrganization</key>
+        <string></string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadScope</key>
+        <string>System</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>174CF2E3-2767-46F8-AD3F-04886E232D52</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadEnabled</key>
+                <true/>
+                <key>PayloadIdentifier</key>
+                <string>com.jacobfgrant.profiles.FC2CEF09-EC38-42EE-94FF-C4A34B4357EE</string>
+                <key>PayloadType</key>
+                <string>com.apple.ManagedClient.preferences</string>
+                <key>PayloadUUID</key>
+                <string>FC2CEF09-EC38-42EE-94FF-C4A34B4357EE</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>PayloadContent</key>
+                <dict>
+                    <key>.GlobalPreferences</key>
+                    <dict>
+                        <key>Forced</key>
+                        <array>
+                            <dict>
+                                <key>mcx_preference_settings</key>
+                                <dict>
+                                    <key>MultipleSessionEnabled</key>
+                                    <true/>
+                                </dict>
+                            </dict>
+                        </array>
+                    </dict>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>
