@@ -62,6 +62,8 @@
                                     <integer>0</integer>
                                     <key>ShowHomeButton</key>
                                     <true/>
+                                    <key>SitePerProcess</key>
+                                    <true/>
                                     <key>SyncDisabled</key>
                                     <true/>
                                 </dict>
