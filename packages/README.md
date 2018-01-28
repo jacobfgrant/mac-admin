@@ -25,11 +25,15 @@ Packages (.pkg files) to be built using Greg Neagle's [munkipkg tool](https://gi
 
 * **firewall-setup** – Runs a post-install script to enable the MacOS firewall and allow built-in and signed software to recieve connections (10.12 and up)
 
+* **install-xcode-cli** – Runs Rich Trouton's post-install script to install the Xcode command line tools (10.7 and higher)
+
 * **msoffice-setup-user** – Installs a script in `outset/login-every` to personalize Microsoft Office 2016 for the user (requires [outset](https://github.com/chilcote/outset))
 
 * **munki-bootstrap** – Installs a script to `outset/boot-once` and runs a post-install script to bootstrap munki after re-imaging a Mac (requires [outset](https://github.com/chilcote/outset))
 
 * **munki-startup** – Installs a script in `outset/login-every` to run munki at the login screen on startup (requires [outset](https://github.com/chilcote/outset))
+
+* **munki-facts** – Installs the [munki-facts](https://github.com/munki/munki-facts) script in `/usr/local/munki/conditionals/` (does not include example facts)
 
 * **open-onedrive** – Installs a script in `outset/login-every` to open the Microsoft OneDrive app at login if installed and the user has a OneDrive folder in their home or Documents folder (requires [outset](https://github.com/chilcote/outset))
 
