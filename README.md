@@ -8,6 +8,11 @@ A collection of tools, scripts, and profiles for administering Macs.
 A collection of LaunchDaemons/LaunchAgents. These can be built into packages using the buildLaunchDPkg.py script.
 
 
+## Nopkgs
+
+Munki nopkgs (pkginfo files with no pkg or app payload) used for running scripts through munki.
+
+
 ## Packages
 
 Packages (.pkg files) to be built using Greg Neagle's [munkipkg tool](https://github.com/munki/munki-pkg).
