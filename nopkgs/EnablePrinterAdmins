@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>autoremove</key>
+	<false/>
+	<key>catalogs</key>
+	<array>
+		<string>testing</string>
+		<string>production</string>
+	</array>
+	<key>category</key>
+	<string>Printers</string>
+	<key>description</key>
+	<string>Adds all users to the printer administrator group to enable users to add/remove printers without admin credentials.</string>
+	<key>developer</key>
+	<string>Jacob F. Grant</string>
+	<key>display_name</key>
+	<string>Enable Printer Admins</string>
+	<key>installcheck_script</key>
+	<string>#!/bin/bash
+
+# List members of group
+function group_members {
+    for u in $(dscl . list /users)
+        do [[ $(id -nG "$u" | grep "$1") ]] &amp;&amp; echo "$u"
+    done
+}
+
+# Check if staff == _lpadmin
+if [[ `group_members staff` == `group_members _lpadmin` ]]
+then
+    # staff != _lpadmin
+    exit 1
+else
+    # staff == _lpadmin
+    exit 0
+fi</string>
+	<key>installer_type</key>
+	<string>nopkg</string>
+	<key>minimum_os_version</key>
+	<string>10.4.0</string>
+	<key>name</key>
+	<string>EnablePrinterAdmins</string>
+	<key>postinstall_script</key>
+	<string>#!/bin/bash
+
+# Add staff users to _lpadmin group
+dseditgroup -o edit -t group -a staff _lpadmin</string>
+	<key>unattended_install</key>
+	<true/>
+	<key>unattended_uninstall</key>
+	<false/>
+	<key>uninstall_method</key>
+	<string>uninstall_script</string>
+	<key>uninstall_script</key>
+	<string>#!/bin/bash
+
+# Delete staff users from _lpadmin group
+dseditgroup -o edit -t group -d staff _lpadmin</string>
+	<key>uninstallable</key>
+	<true/>
+	<key>version</key>
+	<string>1.0</string>
+</dict>
+</plist>
