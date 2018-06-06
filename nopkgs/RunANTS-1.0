@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OnDemand</key>
+	<true/>
+	<key>autoremove</key>
+	<false/>
+	<key>catalogs</key>
+	<array>
+		<string>testing</string>
+	</array>
+	<key>category</key>
+	<string>Configuration</string>
+	<key>description</key>
+	<string>Runs ANTS, a framework to manage and apply configurations using Ansible Pull.
+	
+https://github.com/ANTS-Framework/ants</string>
+	<key>developer</key>
+	<string>Jacob F. Grant</string>
+	<key>display_name</key>
+	<string>Run ANTS</string>
+	<key>installer_type</key>
+	<string>nopkg</string>
+	<key>minimum_os_version</key>
+	<string>10.4.0</string>
+	<key>name</key>
+	<string>RunANTS</string>
+	<key>postinstall_script</key>
+	<string>#!/bin/bash
+
+/Library/ANTS-Framework/bin/ants</string>
+	<key>unattended_install</key>
+	<true/>
+	<key>unattended_uninstall</key>
+	<false/>
+	<key>uninstall_method</key>
+	<string>uninstall_script</string>
+	<key>uninstallable</key>
+	<false/>
+	<key>version</key>
+	<string>1.0</string>
+</dict>
+</plist>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>autoremove</key>
+	<false/>
+	<key>catalogs</key>
+	<array>
+		<string>testing</string>
+	</array>
+	<key>category</key>
+	<string>Security</string>
+	<key>description</key>
+	<string>Enable and configure the macOS firewall.</string>
+	<key>developer</key>
+	<string>Jacob F. Grant</string>
+	<key>display_name</key>
+	<string>Enable Firewall</string>
+	<key>installcheck_script</key>
+	<string>#!/bin/bash
+
+# Set defaults location
+DEFAULTS="/usr/bin/defaults"
+
+# Firewall status
+if [[ `$DEFAULTS read /Library/Preferences/com.apple.alf globalstate` -ne 1 ]]
+then
+    exit 0
+fi
+
+# Built-in software status
+if [[ `$DEFAULTS read /Library/Preferences/com.apple.alf allowsignedenabled` -ne 1 ]]
+then
+    exit 0
+fi
+
+# Signed software status
+if [[ `$DEFAULTS read /Library/Preferences/com.apple.alf allowdownloadsignedenabled` -ne 1 ]]
+then
+    exit 0
+fi
+
+# Stealth Mode status
+if [[ `$DEFAULTS read /Library/Preferences/com.apple.alf stealthenabled` -ne 0 ]]
+then
+    exit 0
+fi
+
+exit 1
+</string>
+	<key>installer_type</key>
+	<string>nopkg</string>
+	<key>minimum_os_version</key>
+	<string>10.4.0</string>
+	<key>name</key>
+	<string>EnableFirewall</string>
+	<key>postinstall_script</key>
+	<string>#!/bin/bash
+
+# Set defaults location
+DEFAULTS="/usr/bin/defaults"
+
+# Enable firewall
+$DEFAULTS write /Library/Preferences/com.apple.alf globalstate -int 1
+
+# Allow built-in software to recieve connections
+$DEFAULTS write /Library/Preferences/com.apple.alf allowsignedenabled -int 1
+
+# Allow signed software to recieve connections
+$DEFAULTS write /Library/Preferences/com.apple.alf allowdownloadsignedenabled -int 1
+
+# Disable Stealth Mode
+$DEFAULTS write /Library/Preferences/com.apple.alf stealthenabled -int 0</string>
+	<key>unattended_install</key>
+	<true/>
+	<key>unattended_uninstall</key>
+	<false/>
+	<key>uninstall_method</key>
+	<string>uninstall_script</string>
+	<key>uninstallable</key>
+	<false/>
+	<key>version</key>
+	<string>1.0</string>
+</dict>
+</plist>
